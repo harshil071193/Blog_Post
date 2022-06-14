@@ -1,0 +1,27 @@
+h2, p{
+    text-transform: capitalize;
+}
+h1 {
+    color: #fff;
+}
+.postcomment{
+    padding: 20px;
+}
+.cmtbody{
+    margin-left: 20px;
+}
+.cmtbody .fw-bold{
+    font-weight: bold;
+}
+.deletebtn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.logout{
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    height: auto;
+    padding: 10px;
+}

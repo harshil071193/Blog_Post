@@ -1,0 +1,69 @@
+<!-- Page content-->
+<div class="container-fluid">
+    <header class="mb-4 d-flex justify-content-between bg-primary p-3">
+        <!-- Post title-->
+        <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
+        <!-- Post meta content-->
+        <button type="button" class="btn btn-danger" (click)="logOut()">Log Out</button>
+    </header>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                
+                <!-- Post content-->
+                <section class="mb-5">
+
+                    <div class="card bg-light" *ngFor="let item of post; let id = index" style="margin-bottom: 40px">
+                        <div class="card-body">
+                            <h2 class="fw-bolder mb-4 mt-5">{{item.title}}</h2>
+                            <p class="fs-5 mb-4">{{item.body}}</p>
+                        </div>
+                        <!-- Single comment-->
+                        <div class="d-flex postcomment" *ngFor="let post of item.cmt; let id = index">
+                            <div class="flex-shrink-0"><img class="rounded-circle"
+                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3 cmtbody">
+                                <div class="fw-bold">{{post.name}}</div>
+                                {{post.body}}
+                            </div>
+                        </div>
+                        <div class="deletebtn">
+                            <div class="dropdown">
+                                <button class="btn btn-danger" type="button" (click)="deletePost(item.id)">
+                                    x
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">New Post</div>
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="submitForm()">
+                        <div class="mb-3">
+                            <label for="Title" class="form-label">Title</label>
+                            <input type="text" formControlName="post_title" class="form-control" id="Title" placeholder="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" formControlName="post_body"  id="description" rows="3"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <button class="btn btn-primary" id="button-search" type="submit">Create post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
